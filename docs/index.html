@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ESCWA Chatbot powered by Fanar and ABM</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; max-width: 720px; margin: 24px auto; }
+    #messages { border: 1px solid #ddd; padding: 12px; height: 60vh; overflow:auto; background:#fafafa }
+    .msg { margin-bottom: 12px }
+    .user { color: #0b67ff }
+    .bot { color: #222 }
+    #controls { margin-top: 12px; display:flex; gap:8px }
+    textarea { flex:1; height:64px }
+  </style>
+</head>
+<body>
+  <h1>ESCWA Chatbot — powered by Fanar and ABM</h1>
+  <div style="display:flex;gap:12px;align-items:center;margin-bottom:12px">
+    <label for="lang">Language:</label>
+    <select id="lang">
+      <option value="en">English</option>
+      <option value="ar">Arabic</option>
+    </select>
+
+    <label for="useRag">Use RAG</label>
+    <input type="checkbox" id="useRag" />
+  </div>
+
+  <div id="messages"></div>
+
+  <div id="controls">
+    <textarea id="prompt" placeholder="Type your message..."></textarea>
+    <button id="send">Send</button>
+    <label for="abmTarget" style="margin-left:8px">Effects on:</label>
+    <select id="abmTarget" style="margin-left:4px">
+      <option value="all">All</option>
+      <option value="women">Women</option>
+      <option value="institutions">Institutions</option>
+      <option value="youths">Youths</option>
+      <option value="unemployed">Unemployed</option>
+      <option value="employed">Employed</option>
+    </select>
+    <button id="sendAbm" title="Send generated policy to ABM">Send to ABM</button>
+  </div>
+
+  <h3>ABM Simulation Results</h3>
+  <div id="abm-results" style="border:1px solid #eee;padding:12px;min-height:80px;background:#fff"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
